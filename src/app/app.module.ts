@@ -1,18 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
+import { MnFullpageModule, MnFullpageService } from 'ngx-fullpage';
 import { AppComponent } from './app.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MnFullpageModule.forRoot()
   ],
-  providers: [],
+  providers: [MnFullpageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
