@@ -20,8 +20,10 @@ body {
 
   #logo{
     margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+    transform: translateY(-50%);
     img {
-      transform: translateY(-50%);
+      z-index: 999;
+      position: relative;
     }
   }
 }
