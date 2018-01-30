@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
     // setTimeout(() => {
     //   this.displaySplashscreen = 'hidden';
     //   clearInterval(intervalText);
-    // }, 2000);
+    // }, 5000);
 
   }
 
