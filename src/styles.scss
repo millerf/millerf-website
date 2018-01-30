@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/fonts/fonts.css";
+
+body {
+  font-family: "VAG Rounded Std";
+  padding: 0;
+  margin: 0;
+  background-image: url(assets/img/bg_content.png);
+}
+
+#splashscreen{
+  position:fixed;
+  z-index: 999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color: #EBEBEB;
+  text-align: center;
+
+  #logo{
+    margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+    img {
+      transform: translateY(-50%);
+    }
+  }
+}
+
+#menu {
+  background-image: url(assets/img/fond_menu_repeat.png);
+  background-size: contain;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 70;
+  width: 100%;
+  border: none;
+
+
+  ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+       width:  20%;
+      float: left;
+      list-style: none;
+      line-height: 50px;
+      display: inline-block;
+      text-align: center;
+      height: 50px;
+      padding: 0;
+      margin: 0;
+      min-width: 100px;
+      a {
+        text-decoration: none;
+        color: #000;
+        display: block;
+      }
+    }
+  }
+}
+

@@ -1,12 +1,18 @@
-
-<div class="menu-wrapper">
-  <ul class="menu">
-    <li data-menuanchor="menuAnchor1" class="active"><a href="#menuAnchor1">First section</a></li>
-    <li data-menuanchor="menuAnchor2"><a href="#menuAnchor2">Second section</a></li>
-    <li data-menuanchor="menuAnchor3"><a href="#menuAnchor3">Third section</a></li>
-    <li data-menuanchor="menuAnchor4"><a href="#menuAnchor4">Fourth section</a></li>
-  </ul>
+<div id="splashscreen" [@visibilityChanged]="displaySplashscreen">
+  <div id="logo" class="animated infinite pulse">
+    <img src="assets/img/logo.png" alt="MILLER/F">
+  </div>
 </div>
+
+<nav id="menu">
+  <ul>
+    <li data-menuanchor="menuAnchor1" class="active"><a href="#frontend">Front-end</a></li>
+    <li data-menuanchor="menuAnchor2"><a href="#backend">Back-end</a></li>
+    <li data-menuanchor="menuAnchor3"><a href="#projects">Projects</a></li>
+    <li data-menuanchor="menuAnchor3"><a href="#github">Github</a></li>
+    <li data-menuanchor="menuAnchor4"><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
 
 <div id="content-wrapper" [mnFullpage]="options"
@@ -39,11 +45,5 @@
     </div>
   </div>
 
-  <div class="section welcome-section fp-section fp-table">
-    <div class="fp-tableCell">
-      <h1>Angular X fullPage.js</h1>
-      <h4>Create Beautiful Fullscreen Scrolling Websites (now with Angular 2 and above)!</h4>
-      <img class="logo-image" src="https://raw.githubusercontent.com/meiblorn/ng2-fullpage/develop/logo.png"/>
-    </div>
-  </div>
+
 </div>

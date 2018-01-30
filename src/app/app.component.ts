@@ -1,24 +1,35 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MnFullpageOptions } from 'ngx-fullpage/index';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  animations: [
+    trigger('visibilityChanged', [
+      state('shown', style({opacity: 1})),
+      state('hidden', style({opacity: 0})),
+      transition('* => *', animate('.7s'))
+    ])
+  ]
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit {
 
   @Input() public options: MnFullpageOptions = new MnFullpageOptions({
     controlArrows: true,
     scrollingSpeed: 1000,
-
-    menu: '.menu',
-
+    menu: '#menu',
     css3: true,
     anchors: [
-      'menuAnchor1', 'menuAnchor2', 'menuAnchor3',
-      'menuAnchor4', 'menuAnchor5', 'menuAnchor6'
+      'frontend', 'backend', 'projects', 'github', 'contact'
     ]
   });
+
+  protected displaySplashscreen = 'shown';
+
+  ngOnInit() {
+    setTimeout(() => this.displaySplashscreen = 'hidden', 2000);
+  }
 
 }
