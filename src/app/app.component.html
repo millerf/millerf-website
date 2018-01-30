@@ -1,7 +1,8 @@
 <div id="splashscreen"
-     [@visibilityChanged]="displaySplashscreen"
-     (@visibilityChanged.done)="displaySplashscreen = displaySplashscreen == 'hidden' ? 'removed': 'shown'"
-      *ngIf="displaySplashscreen != 'removed'">
+     [ngClass]="{'animated zoomOut': displaySplashscreen == 'removed'}">
+     <!--[@visibilityChanged]="displaySplashscreen"-->
+     <!--(@visibilityChanged.done)="displaySplashscreen = displaySplashscreen == 'hidden' || displaySplashscreen == 'removed' ? 'removed': 'shown'"-->
+
   <div id="logo">
     <h1>Coming soon</h1>
     <img class="animated infinite pulse" src="assets/img/logo.png" alt="MILLER/F">
@@ -13,46 +14,46 @@
   </div>
 </div>
 
-<!--<nav id="menu">-->
-  <!--<ul>-->
-    <!--<li data-menuanchor="menuAnchor1" class="active"><a href="#frontend">Front-end</a></li>-->
-    <!--<li data-menuanchor="menuAnchor2"><a href="#backend">Back-end</a></li>-->
-    <!--<li data-menuanchor="menuAnchor3"><a href="#projects">Projects</a></li>-->
-    <!--<li data-menuanchor="menuAnchor3"><a href="#github">Github</a></li>-->
-    <!--<li data-menuanchor="menuAnchor4"><a href="#contact">Contact</a></li>-->
-  <!--</ul>-->
-<!--</nav>-->
+<nav id="menu">
+  <ul>
+    <li data-menuanchor="menuAnchor1" class="active"><a href="#frontend">Front-end</a></li>
+    <li data-menuanchor="menuAnchor2"><a href="#backend">Back-end</a></li>
+    <li data-menuanchor="menuAnchor3"><a href="#projects">Projects</a></li>
+    <li data-menuanchor="menuAnchor3"><a href="#github">Github</a></li>
+    <li data-menuanchor="menuAnchor4"><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
 
-<!--<div id="content-wrapper" [mnFullpage]="options"-->
-     <!--[mnFullpageNavigation]="true"-->
-     <!--[mnFullpageKeyboardScrolling]="true"-->
-     <!--[mnFullpageSlidesNavigation]="true"-->
-     <!--mnFullpageSlidesNavPosition="bottom">-->
+<div id="content-wrapper" [mnFullpage]="options"
+     [mnFullpageNavigation]="true"
+     [mnFullpageKeyboardScrolling]="true"
+     [mnFullpageSlidesNavigation]="true"
+     mnFullpageSlidesNavPosition="bottom">
 
-  <!--<div class="section welcome-section fp-section fp-table">-->
-    <!--<div class="fp-tableCell">-->
-      <!--<h1>Angular X fullPage.js</h1>-->
-      <!--<h4>Create Beautiful Fullscreen Scrolling Websites (now with Angular 2 and above)!</h4>-->
-      <!--<img class="logo-image" src="https://raw.githubusercontent.com/meiblorn/ng2-fullpage/develop/logo.png"/>-->
-    <!--</div>-->
-  <!--</div>-->
+  <div class="section welcome-section fp-section fp-table">
+    <div class="fp-tableCell">
+      <h1>Angular X fullPage.js</h1>
+      <h4>Create Beautiful Fullscreen Scrolling Websites (now with Angular 2 and above)!</h4>
+      <img class="logo-image" src="https://raw.githubusercontent.com/meiblorn/ng2-fullpage/develop/logo.png"/>
+    </div>
+  </div>
 
-  <!--<div class="section welcome-section fp-section fp-table">-->
-    <!--<div class="fp-tableCell">-->
-      <!--<h1>Angular X fullPage.js</h1>-->
-      <!--<h4>Create Beautiful Fullscreen Scrolling Websites (now with Angular 2 and above)!</h4>-->
-      <!--<img class="logo-image" src="https://raw.githubusercontent.com/meiblorn/ng2-fullpage/develop/logo.png"/>-->
-    <!--</div>-->
-  <!--</div>-->
+  <div class="section welcome-section fp-section fp-table">
+    <div class="fp-tableCell">
+      <h1>Angular X fullPage.js</h1>
+      <h4>Create Beautiful Fullscreen Scrolling Websites (now with Angular 2 and above)!</h4>
+      <img class="logo-image" src="https://raw.githubusercontent.com/meiblorn/ng2-fullpage/develop/logo.png"/>
+    </div>
+  </div>
 
-  <!--<div class="section welcome-section fp-section fp-table">-->
-    <!--<div class="fp-tableCell">-->
-      <!--<h1>Angular X fullPage.js</h1>-->
-      <!--<h4>Create Beautiful Fullscreen Scrolling Websites (now with Angular 2 and above)!</h4>-->
-      <!--<img class="logo-image" src="https://raw.githubusercontent.com/meiblorn/ng2-fullpage/develop/logo.png"/>-->
-    <!--</div>-->
-  <!--</div>-->
+  <div class="section welcome-section fp-section fp-table">
+    <div class="fp-tableCell">
+      <h1>Angular X fullPage.js</h1>
+      <h4>Create Beautiful Fullscreen Scrolling Websites (now with Angular 2 and above)!</h4>
+      <img class="logo-image" src="https://raw.githubusercontent.com/meiblorn/ng2-fullpage/develop/logo.png"/>
+    </div>
+  </div>
 
 
-<!--</div>-->
+</div>

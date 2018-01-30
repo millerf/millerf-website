@@ -10,11 +10,6 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       state('shown', style({opacity: 1})),
       state('hidden', style({opacity: 0})),
       transition('* => *', animate('.7s'))
-    ]),
-    trigger('visibilityChanged', [
-      state('shown', style({opacity: 1})),
-      state('hidden', style({opacity: 0})),
-      transition('* => *', animate('.7s'))
     ])
   ]
 })
@@ -47,21 +42,22 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.splashScreenText = this.textCycle[this.textIndex++];
+    let timeoutText;
     const intervalText = setInterval(() => {
       this.updateText = true;
-      setTimeout(() => this.nextText(), 1000);
+      timeoutText = setTimeout(() => this.nextText(true), 1000);
     }, 2500);
 
-    // setTimeout(() => {
-    //   this.displaySplashscreen = 'hidden';
-    //   clearInterval(intervalText);
-    // }, 5000);
+    setTimeout(() => {
+      this.displaySplashscreen = 'removed';
+      clearInterval(intervalText);
+      clearTimeout(timeoutText);
+    }, 6500);
 
   }
 
-  protected nextText() {
-    this.splashScreenText = this.textCycle[this.textIndex++];
-    this.textIndex %= this.textCycle.length;
+  protected nextText(random = false) {
+    this.splashScreenText = this.textCycle[random ? Math.floor(Math.random() * this.textCycle.length) : this.textIndex++];
     this.updateText = false;
   }
 
