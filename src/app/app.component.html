@@ -1,59 +1,102 @@
 <div id="splashscreen"
-     [ngClass]="{'animated zoomOut': displaySplashscreen == 'removed'}">
-     <!--[@visibilityChanged]="displaySplashscreen"-->
-     <!--(@visibilityChanged.done)="displaySplashscreen = displaySplashscreen == 'hidden' || displaySplashscreen == 'removed' ? 'removed': 'shown'"-->
-
+     [ngClass]="{'animated zoomOut': !displaySplashscreen}"
+     *ngIf="!removeSplashscreen">
   <div id="logo">
     <h1>Coming soon</h1>
     <img class="animated infinite pulse" src="assets/img/logo.png" alt="MILLER/F">
     <p class="animated"
-        [ngClass]="{
-                'fadeOutLeft': updateText,
-                'zoomInDown': !updateText
-                }">{{splashScreenText}}...</p>
+       [ngClass]="{
+                    'fadeOutLeft': updateText,
+                    'zoomInDown': !updateText
+                  }"
+    >{{splashScreenText}}...</p>
   </div>
 </div>
 
 <nav id="menu">
   <ul>
-    <li data-menuanchor="menuAnchor1" class="active"><a href="#frontend">Front-end</a></li>
-    <li data-menuanchor="menuAnchor2"><a href="#backend">Back-end</a></li>
-    <li data-menuanchor="menuAnchor3"><a href="#projects">Projects</a></li>
-    <li data-menuanchor="menuAnchor3"><a href="#github">Github</a></li>
-    <li data-menuanchor="menuAnchor4"><a href="#contact">Contact</a></li>
+    <li data-menuanchor="projects"><a href="#projects">Projects</a></li>
+    <li data-menuanchor="frontend" class="active"><a href="#frontend">Front-end</a></li>
+    <li data-menuanchor="backend"><a href="#backend">Back-end</a></li>
+    <li data-menuanchor="github"><a href="#github">Github / Gitlab</a></li>
+    <li data-menuanchor="contact"><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 
 <div id="content-wrapper" [mnFullpage]="options"
-     [mnFullpageNavigation]="true"
-     [mnFullpageKeyboardScrolling]="true"
-     [mnFullpageSlidesNavigation]="true"
-     mnFullpageSlidesNavPosition="bottom">
+>
 
-  <div class="section welcome-section fp-section fp-table">
-    <div class="fp-tableCell">
-      <h1>Angular X fullPage.js</h1>
-      <h4>Create Beautiful Fullscreen Scrolling Websites (now with Angular 2 and above)!</h4>
-      <img class="logo-image" src="https://raw.githubusercontent.com/meiblorn/ng2-fullpage/develop/logo.png"/>
+
+  <div class="section">
+    <div class="slide">
+      <h1>Mozaik</h1>
+      <div>
+        <p>
+          Mozaik is a domotic project composed of 3
+        </p>
+      </div>
+    </div>
+
+
+    <div class="slide">
+      <h1>CG Spectrum</h1>
+    </div>
+
+
+    <div class="slide">
+      <h1>Ramdam</h1>
+    </div>
+    <div class="slide">
+      <h1>Project Mirador</h1>
+      http://www.project-mirador.org/
     </div>
   </div>
 
-  <div class="section welcome-section fp-section fp-table">
-    <div class="fp-tableCell">
-      <h1>Angular X fullPage.js</h1>
-      <h4>Create Beautiful Fullscreen Scrolling Websites (now with Angular 2 and above)!</h4>
-      <img class="logo-image" src="https://raw.githubusercontent.com/meiblorn/ng2-fullpage/develop/logo.png"/>
+  <div class="section">
+    <div class="slide">
+      <h1>AngularJS & Angular X</h1>
+    </div>
+
+    <div class="slide">
+      <h1>Ionic</h1>
+    </div>
+
+    <div class="slide">
+      <h1>HTML / CSS /jQuery</h1>
     </div>
   </div>
 
-  <div class="section welcome-section fp-section fp-table">
-    <div class="fp-tableCell">
-      <h1>Angular X fullPage.js</h1>
-      <h4>Create Beautiful Fullscreen Scrolling Websites (now with Angular 2 and above)!</h4>
-      <img class="logo-image" src="https://raw.githubusercontent.com/meiblorn/ng2-fullpage/develop/logo.png"/>
+  <div class="section">
+    <div class="slide">
+      <h1>Python django & Celery</h1>
     </div>
+
+    <div class="slide">
+      <h1>PHP / Miller/F Admin</h1>
+    </div>
+
   </div>
 
+  <div class="section">
+    <div class="slide">
+      <h1>Github / Travis CI</h1>
+      <p>
+        See me on Github
+      </p>
+    </div>
+    <div class="slide">
+      <h1>Gitlab / Gitlab CI</h1>
+      <p>
 
-</div>
+      </p>
+    </div>
+  </div>
+    <div class="section">
+      <h1>Contact</h1>
+      <input>
+      <textarea></textarea>
+      <button click="contact"></button>
+    </div>
+
+  </div>

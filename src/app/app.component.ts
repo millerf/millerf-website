@@ -1,17 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { MnFullpageOptions } from 'ngx-fullpage/index';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  animations: [
-    trigger('visibilityChanged', [
-      state('shown', style({opacity: 1})),
-      state('hidden', style({opacity: 0})),
-      transition('* => *', animate('.7s'))
-    ])
-  ]
 })
 
 export class AppComponent implements OnInit {
@@ -22,11 +15,13 @@ export class AppComponent implements OnInit {
     menu: '#menu',
     css3: true,
     anchors: [
-      'frontend', 'backend', 'projects', 'github', 'contact'
-    ]
+      'projects', 'frontend', 'backend', 'github', 'contact'
+    ],
+    sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#f2f2f2'],
   });
 
-  public displaySplashscreen = 'shown';
+  public displaySplashscreen = true;
+  public removeSplashscreen = false;
   protected splashScreenText = '';
   protected updateText = false;
   private textIndex = 0;
@@ -49,10 +44,16 @@ export class AppComponent implements OnInit {
     }, 2500);
 
     setTimeout(() => {
-      this.displaySplashscreen = 'removed';
+      this.displaySplashscreen = false;
+
+      // Not that good but cannot catch end of animate.css animation,
+      // and angular wrappers are not properly working
+      // https://www.npmjs.com/package/ngx-animate
+      setTimeout(() => this.removeSplashscreen = true, 1000);
+
       clearInterval(intervalText);
       clearTimeout(timeoutText);
-    }, 6500);
+    }, environment.production ? 5000 : 1000);
 
   }
 

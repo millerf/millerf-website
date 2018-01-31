@@ -1,11 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-@import "assets/fonts/fonts.css";
+@import "../fonts/fonts.css";
+@import "fullpage.scss";
+
+$millerf_red: #ff0913;
 
 body {
   font-family: "VAG Rounded Std";
   padding: 0;
   margin: 0;
-  background-image: url(assets/img/bg_content.png);
+  background-image: url(../img/bg_content.png);
 }
 
 #splashscreen{
@@ -29,7 +32,7 @@ body {
 }
 
 #menu {
-  background-image: url(assets/img/fond_menu_repeat.png);
+  background-image: url(../img/fond_menu_repeat.png);
   background-size: contain;
   position: fixed;
   top: 0;
@@ -54,6 +57,13 @@ body {
       padding: 0;
       margin: 0;
       min-width: 100px;
+
+      &.active{
+        a {
+          color: $millerf_red;
+        }
+      }
+
       a {
         text-decoration: none;
         color: #000;

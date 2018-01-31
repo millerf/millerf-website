@@ -20,7 +20,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.scss",
+        "assets/scss/styles.scss",
         "../node_modules/fullpage.js/dist/jquery.fullpage.css"
       ],
       "scripts": [
