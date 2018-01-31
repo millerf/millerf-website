@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { MnFullpageOptions } from 'ngx-fullpage/index';
 import { environment } from '../environments/environment';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,12 @@ export class AppComponent implements OnInit {
   public removeSplashscreen = false;
   protected splashScreenText = '';
   protected updateText = false;
+  protected contact_sent = false;
+  protected contact_error = false;
+  protected message_input: string;
+  protected subject_input: string;
+  protected email_input: string;
+  protected message: string;
   private textIndex = 0;
   private textCycle: Array<string> = [
     'Updating website',
@@ -60,6 +67,20 @@ export class AppComponent implements OnInit {
   protected nextText(random = false) {
     this.splashScreenText = this.textCycle[random ? Math.floor(Math.random() * this.textCycle.length) : this.textIndex++];
     this.updateText = false;
+  }
+
+  protected send_contact(f: NgForm) {
+
+    console.info(f.value);
+    if (!f.valid) {
+      this.contact_error = true;
+      console.info('invalid');
+      return;
+    }
+    this.contact_error = false;
+    this.contact_sent = true;
+
+    setTimeout(() => this.contact_sent = false, 5000);
   }
 
 }

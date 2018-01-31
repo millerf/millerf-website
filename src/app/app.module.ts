@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MnFullpageModule, MnFullpageService } from 'ngx-fullpage';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     MnFullpageModule.forRoot()
   ],
   providers: [MnFullpageService],

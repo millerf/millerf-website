@@ -30,7 +30,25 @@
 
   <div class="section">
     <div class="slide">
-      <h1>Mozaik</h1>
+      <h1>Mozaik phase 1</h1>
+      <div>
+        <p>
+          Mozaik is a domotic project composed of 3
+        </p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Mozaik phase 2</h1>
+      <div>
+        <p>
+          Mozaik is a domotic project composed of 3
+        </p>
+      </div>
+    </div>
+
+    <div class="slide">
+      <h1>Mozaik phase 3</h1>
       <div>
         <p>
           Mozaik is a domotic project composed of 3
@@ -63,7 +81,7 @@
     </div>
 
     <div class="slide">
-      <h1>HTML / CSS /jQuery</h1>
+      <h1>HTML / CSS / SCSS / jQuery</h1>
     </div>
   </div>
 
@@ -92,11 +110,31 @@
       </p>
     </div>
   </div>
-    <div class="section">
+    <div class="section" id="contact_section">
       <h1>Contact</h1>
-      <input>
-      <textarea></textarea>
-      <button click="contact"></button>
+      <form #f="ngForm" (ngSubmit)="send_contact(f)" >
+        <input #subject="ngModel"
+               [(ngModel)]="subject_input"
+               [ngClass]="{'error': this.contact_error && !subject.valid}"
+               name="subject"
+               required
+               placeholder="subject" />
+        <input [ngClass]="{'error': this.contact_error && !email.valid}"
+               #email="ngModel"
+               [(ngModel)]="email_input"
+               email
+               name="email"
+               type="email"
+               placeholder="email" />
+        <textarea [ngClass]="{'error': this.contact_error && !message.valid}"
+                  #message="ngModel"
+                  [(ngModel)]="message_input"
+                  name="message"
+                  required
+                  placeholder="Message">
+        </textarea>
+        <button [ngClass]="{'sent': contact_sent}">{{ !contact_sent ? 'Send' : 'Sent!'}}</button>
+      </form>
     </div>
 
   </div>
