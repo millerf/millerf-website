@@ -1,0 +1,13 @@
+<div id="splashscreen"
+     [ngClass]="{'animated zoomOut': !displaySplashscreen}">
+  <div id="logo">
+    <h1>Coming soon</h1>
+    <img class="animated infinite pulse" src="assets/img/logo.png" alt="MILLER/F">
+    <p class="animated"
+       [ngClass]="{
+                    'fadeOutLeft': updateText,
+                    'zoomInDown': !updateText
+                  }"
+    >{{splashScreenText}}...</p>
+  </div>
+</div>

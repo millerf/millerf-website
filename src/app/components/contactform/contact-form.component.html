@@ -1,0 +1,23 @@
+<form #f="ngForm" (ngSubmit)="send_contact(f)" >
+  <input #subject="ngModel"
+         [(ngModel)]="subject_input"
+         [ngClass]="{'error': this.contact_error && !subject.valid}"
+         name="subject"
+         required
+         placeholder="subject" />
+  <input [ngClass]="{'error': this.contact_error && !email.valid}"
+         #email="ngModel"
+         [(ngModel)]="email_input"
+         email
+         name="email"
+         type="email"
+         placeholder="email" />
+  <textarea [ngClass]="{'error': this.contact_error && !message.valid}"
+            #message="ngModel"
+            [(ngModel)]="message_input"
+            name="message"
+            required
+            placeholder="Message">
+        </textarea>
+  <button [ngClass]="{'sent': contact_sent}">{{ !contact_sent ? 'Send' : 'Sent!'}}</button>
+</form>
