@@ -12,7 +12,6 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.info(this.dataService.sections);
   }
 
 }
