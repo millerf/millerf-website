@@ -26,6 +26,7 @@
       "scripts": [
 
         "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/fullpage.js/vendors/scrolloverflow.min.js",
         "../node_modules/fullpage.js/dist/jquery.fullpage.js"
       ],
       "environmentSource": "environments/environment.ts",

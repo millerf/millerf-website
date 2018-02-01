@@ -17,6 +17,9 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   @Input() public options: MnFullpageOptions = new MnFullpageOptions({
     controlArrows: true,
+    loopBottom: true,
+    slidesNavigation: true,
+    scrollOverflow: true,
     scrollingSpeed: 1000,
     menu: '#menu',
     css3: true,

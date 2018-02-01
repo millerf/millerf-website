@@ -7,19 +7,29 @@
 
 <div id="content-wrapper" #contentWrapper>
 
-  <div *ngFor="let section of dataService.getiDsplayedSections()" class="section">
+  <div *ngFor="let section of dataService.getDisplayedSections()"
+       class="section">
     <div *ngFor="let subsection of section.subsections"
-         [ngClass]="{'slide': section.subsections.length > 1}">
+         [ngClass]="{'slide': section.subsections.length > 1}"
+         [attr.data-anchor]="subsection.title">
       <h1>{{subsection.title}}</h1>
       <img height="50" src="{{subsection.mainImageUrl}}"/>
       <div>
         <p>
           {{subsection.text}}
-          <img *ngFor="let img of subsection.images" height="50" src="{{img}}"/>
+
         </p>
-        <div class="techused">
+        <div class="images" *ngIf="subsection.images && subsection.images.length > 0">
+          <div *ngFor="let img of subsection.images"  class="thumbnail">
+            <img height="50" src="{{img}}"/>
+          </div>
+
+        </div>
+        <div class="techused" *ngIf="subsection.technologies.length > 0">
           <ul>
-            <li>test</li>
+            <li *ngFor="let tech of subsection.technologies">
+              <a href="#{{tech.section.tag}}/{{tech.title}}">{{ tech ? tech.title : ''}}</a>
+            </li>
           </ul>
         </div>
       </div>
