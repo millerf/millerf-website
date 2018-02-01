@@ -78,16 +78,33 @@ export class DataService {
     let project = new Project();
     project.title = 'Mozaik phase 3';
     project.text = 'Mozaik is a domotic project composed of 3';
+    project.mainImageUrl = 'assets/img/projects/mozaik-phase3/mozaik-phase3.png';
+    project.images = ['assets/img/projects/mozaik-phase3/mozaik-phase3-1.jpg',
+      'assets/img/projects/mozaik-phase3/mozaik-phase3-2.jpg',
+      'assets/img/projects/mozaik-phase3/mozaik-phase3-3.jpg',
+      'assets/img/projects/mozaik-phase3/mozaik-phase3-4.jpg'];
     projects.subsections.push(project);
 
     project = new Project();
     project.title = 'Mozaik phase 2';
     project.text = 'Mozaik is a domotic project composed of 3';
+    project.mainImageUrl = 'assets/img/projects/mozaik-phase2/mozaik-phase2.png';
+    project.images = ['assets/img/projects/mozaik-phase2/mozaik-phase2-1.png',
+                      'assets/img/projects/mozaik-phase2/mozaik-phase2-2.png',
+                      'assets/img/projects/mozaik-phase2/mozaik-phase2-3.png',
+                      'assets/img/projects/mozaik-phase2/mozaik-phase2-4.png',
+                      'assets/img/projects/mozaik-phase2/mozaik-phase2-5.png',
+                      'assets/img/projects/mozaik-phase2/mozaik-phase2-6.png',
+                      'assets/img/projects/mozaik-phase2/mozaik-phase2-7.png'];
     projects.subsections.push(project);
 
     project = new Project();
     project.title = 'Mozaik phase 1';
     project.text = 'Mozaik is a domotic project composed of 3';
+    project.mainImageUrl = 'assets/img/projects/mozaik-phase1/mozaik-phase1.png';
+    project.images = ['assets/img/projects/mozaik-phase1/mozaik-phase1-1.png',
+      'assets/img/projects/mozaik-phase1/mozaik-phase1-2.png',
+      'assets/img/projects/mozaik-phase1/mozaik-phase1-3.png'];
     projects.subsections.push(project);
 
 

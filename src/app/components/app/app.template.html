@@ -11,9 +11,11 @@
     <div *ngFor="let subsection of section.subsections"
          [ngClass]="{'slide': section.subsections.length > 1}">
       <h1>{{subsection.title}}</h1>
+      <img height="50" src="{{subsection.mainImageUrl}}"/>
       <div>
-        <p [innerHTML]="subsection.text">
-
+        <p>
+          {{subsection.text}}
+          <img *ngFor="let img of subsection.images" height="50" src="{{img}}"/>
         </p>
         <div class="techused">
           <ul>
