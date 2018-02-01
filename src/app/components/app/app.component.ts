@@ -3,6 +3,9 @@ import { MnFullpageOptions } from 'ngx-fullpage/index';
 import { environment } from '../../../environments/environment';
 import { DataService } from '../../services/data.service';
 
+declare var $;
+
+
 @Component({
   selector: 'millerf-web-root',
   templateUrl: './app.template.html',
