@@ -1,13 +1,16 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { MnFullpageOptions } from 'ngx-fullpage/index';
 import { environment } from '../../../environments/environment';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'millerf-web-root',
   templateUrl: './app.template.html',
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('contentWrapper') contentWrapper: ElementRef;
 
   @Input() public options: MnFullpageOptions = new MnFullpageOptions({
     controlArrows: true,
@@ -23,6 +26,14 @@ export class AppComponent implements OnInit {
   public displaySplashscreen = true;
   public removeSplashscreen = false;
 
+  constructor(public dataService: DataService) {}
+
+  ngAfterViewInit() {
+
+    // tslint:disable-next-line
+    (<any>$)(this.contentWrapper.nativeElement).fullpage(this.options);
+
+  }
 
   ngOnInit() {
 

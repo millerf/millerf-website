@@ -1,7 +1,8 @@
 <nav id="menu">
   <ul>
-    <li *ngFor="let section of dataService.sections" data-menuanchor="section.tag">
-      <a href="#{{section.tag}}">{{section.title}}</a>
+    <li *ngFor="let section of dataService.sections"
+        [attr.data-menuanchor]="section.tag">
+      <a href="{{ '#' + section.tag}}">{{section.title}}</a>
     </li>
   </ul>
 </nav>
