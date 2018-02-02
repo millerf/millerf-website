@@ -9,8 +9,8 @@ export class SplashscreenComponent implements OnInit, OnDestroy {
 
   @Input() displaySplashscreen: boolean;
 
-  protected splashScreenText = '';
-  protected updateText = false;
+  public splashScreenText = '';
+  public updateText = false;
   private intervalText;
   private timeoutText;
 

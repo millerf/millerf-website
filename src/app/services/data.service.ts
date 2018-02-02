@@ -80,6 +80,7 @@ export class DataService {
     this.django_channels_jsonrpc = new TechnologyBack();
     this.django_channels_jsonrpc.title = 'django-channels-jsonrpc';
     this.django_channels_jsonrpc.tag = 'django-channels-jsonrpc';
+    this.django_channels_jsonrpc.github = 'millerf/django-channels-jsonrpc';
     backend.addSubSection(this.django_channels_jsonrpc);
 
     this.php_millerf_admin = new TechnologyBack();
@@ -90,7 +91,9 @@ export class DataService {
 
     this.github = new TechnologyBack();
     this.github.title = 'Github / Travis CI';
+    this.github.text = require('../template/github.template.html');
     this.github.tag = 'github';
+    this.github.github = 'millerf';
     github.addSubSection(this.github);
 
     this.gitlab = new TechnologyBack();
@@ -117,7 +120,8 @@ export class DataService {
     project.title = 'Mozaik phase 3';
     project.text = require('../template/mozaik3.template.html');
     project.mainImageUrl = 'assets/img/projects/mozaik-phase3/mozaik-phase3.png';
-    project.images = ['assets/img/projects/mozaik-phase3/mozaik-phase3-1.jpg',
+    project.images = [
+      'assets/img/projects/mozaik-phase3/mozaik-phase3-1.jpg',
       'assets/img/projects/mozaik-phase3/mozaik-phase3-2.jpg',
       'assets/img/projects/mozaik-phase3/mozaik-phase3-3.jpg',
       'assets/img/projects/mozaik-phase3/mozaik-phase3-4.jpg'];
@@ -129,7 +133,8 @@ export class DataService {
     project.title = 'Mozaik phase 2';
     project.text = require('../template/mozaik2.template.html');
     project.mainImageUrl = 'assets/img/projects/mozaik-phase2/mozaik-phase2.png';
-    project.images = ['assets/img/projects/mozaik-phase2/mozaik-phase2-1.png',
+    project.images = [
+      'assets/img/projects/mozaik-phase2/mozaik-phase2-1.png',
       'assets/img/projects/mozaik-phase2/mozaik-phase2-2.png',
       'assets/img/projects/mozaik-phase2/mozaik-phase2-3.png',
       'assets/img/projects/mozaik-phase2/mozaik-phase2-4.png',
@@ -143,7 +148,8 @@ export class DataService {
     project.title = 'Mozaik phase 1';
     project.text = require('../template/mozaik1.template.html');
     project.mainImageUrl = 'assets/img/projects/mozaik-phase1/mozaik-phase1.png';
-    project.images = ['assets/img/projects/mozaik-phase1/mozaik-phase1-1.png',
+    project.images = [
+      'assets/img/projects/mozaik-phase1/mozaik-phase1-1.png',
       'assets/img/projects/mozaik-phase1/mozaik-phase1-2.png',
       'assets/img/projects/mozaik-phase1/mozaik-phase1-3.png'];
     project.technologies.push(this.html, this.ionic, this.php_millerf_admin);
@@ -153,23 +159,30 @@ export class DataService {
     project = new Project();
     project.title = 'CG Spectrum';
     project.mainImageUrl = 'assets/img/projects/cgspectrum/logo.png';
+    project.images = [
+      'assets/img/projects/cgspectrum/cgspectrum1.png',
+      'assets/img/projects/cgspectrum/cgspectrum2.png',
+      'assets/img/projects/cgspectrum/cgspectrum3.png'];
     project.text = '<a target="_blank" href="//www.cgspectrum.com.au">http://www.cgspectrum.com.au</a>';
     project.technologies.push(this.html, this.github, this.php_millerf_admin);
     projects.addSubSection(project);
 
     project = new Project();
-    project.title = 'Ramdam';
-    project.mainImageUrl = 'assets/img/projects/ramdam/logo.svg';
-    project.text = '<a target="_blank" href="//www.ramdam.com/">http://www.ramdam.com/</a>';
+    project.title = 'Project Mirador';
+    project.images = [
+      'assets/img/projects/mirador/mirador1.png',
+      'assets/img/projects/mirador/mirador2.png'];
+    project.mainImageUrl = 'assets/img/projects/mirador/logo.svg';
+    project.text = '<a target="_blank" href="//www.project-mirador.com">http://www.project-mirador.com</a> is an Europe-founded association that helps raise awareness about geo-political crisis and conflicts. <br/><br/> Activities are based upon a Javascript simulator and chat between participants. ';
     project.technologies.push(this.html, this.php_millerf_admin);
     projects.addSubSection(project);
 
     project = new Project();
-    project.title = 'Project Mirador';
-    project.mainImageUrl = 'assets/img/projects/mirador/logo.svg';
-
-    project.text = '<a target="_blank" href="//www.project-mirador.com">http://www.project-mirador.com</a>';
+    project.title = 'Ramdam';
+    project.mainImageUrl = 'assets/img/projects/ramdam/logo.svg';
+    project.text = '<a target="_blank" href="//www.ramdam.com/">http://www.ramdam.com/</a> is an online school for 3D and animation artists based in Melbourne, Australia.';
     project.technologies.push(this.html, this.php_millerf_admin);
     projects.addSubSection(project);
+
   }
 }

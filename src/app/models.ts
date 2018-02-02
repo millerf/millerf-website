@@ -17,6 +17,7 @@ export class SubSection {
   title: string;
   tag: string;
   text: string;
+  github: string = null;
   section: Section;
 }
 

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import {Component, ElementRef, Input, OnInit, AfterViewInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import { MnFullpageOptions } from 'ngx-fullpage/index';
 import { environment } from '../../../environments/environment';
 import { DataService } from '../../services/data.service';
@@ -9,6 +9,7 @@ declare var $;
 @Component({
   selector: 'millerf-web-root',
   templateUrl: './app.template.html',
+  encapsulation: ViewEncapsulation.None,
 })
 
 export class AppComponent implements OnInit, AfterViewInit {

@@ -8,16 +8,16 @@ import { NgForm } from '@angular/forms';
 })
 export class ContactFormComponent {
 
-  protected message_input: string;
-  protected subject_input: string;
-  protected email_input: string;
-  protected message: string;
-  protected contact_error = false;
-  protected contact_sent = false;
+  public message_input: string;
+  public subject_input: string;
+  public email_input: string;
+  public message: string;
+  public contact_error = false;
+  public contact_sent = false;
 
   constructor() { }
 
-  protected send_contact(f: NgForm) {
+  public send_contact(f: NgForm) {
 
     if (!f.valid) {
       this.contact_error = true;

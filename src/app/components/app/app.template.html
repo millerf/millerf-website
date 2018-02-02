@@ -9,33 +9,14 @@
 
   <div *ngFor="let section of dataService.getDisplayedSections()"
        class="section">
-    <div *ngFor="let subsection of section.subsections"
+
+    <millerf-web-subsection
+        *ngFor="let subsection of section.subsections"
          [ngClass]="{'slide': section.subsections.length > 1}"
-         [attr.data-anchor]="subsection.tag">
+         [attr.data-anchor]="subsection.tag"
+         [subsection]="subsection">
+    </millerf-web-subsection>
 
-      <img class="logo" src="{{subsection.mainImageUrl}}"/>
-
-      <h1>{{subsection.title}}</h1>
-
-      <div>
-        <p [innerHTML]="subsection.text"></p>
-        <div class="images" *ngIf="subsection.images && subsection.images.length > 0">
-          <div *ngFor="let img of subsection.images"  class="thumbnail">
-            <a href="{{img}}" data-lightbox="subsection.title" >
-              <img src="{{img}}"/>
-            </a>
-          </div>
-        </div>
-        <div class="techused" *ngIf="subsection.technologies.length > 0">
-          <h4>Technologies:</h4>
-          <ul>
-            <li *ngFor="let tech of subsection.technologies">
-              <a href="#{{tech.section.tag}}/{{tech.tag}}">{{ tech ? tech.title : ''}}</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
   </div>
 
   <div class="section" id="contact_section">

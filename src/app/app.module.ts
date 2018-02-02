@@ -8,6 +8,9 @@ import { ContactFormComponent } from './components/contactform/contact-form.comp
 import { SplashscreenComponent } from './components/splashscreen/splashscreen.component';
 import { MenuComponent } from './components/menu/menu.component';
 import {DataService} from './services/data.service';
+import {EscapeHtmlPipe} from './pipes/keepHTML.pipe';
+import { GithubRibbonComponent } from './components/github-ribbon/github-ribbon.component';
+import { SubsectionComponent } from './components/subsection/subsection.component';
 
 
 @NgModule({
@@ -16,6 +19,9 @@ import {DataService} from './services/data.service';
     ContactFormComponent,
     SplashscreenComponent,
     MenuComponent,
+    EscapeHtmlPipe,
+    GithubRibbonComponent,
+    SubsectionComponent,
   ],
   imports: [
     BrowserModule,
