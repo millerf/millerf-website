@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Project, Section, TechnologyBack, TechnologyFront} from '../models';
 
+declare var require;
+
+
 @Injectable()
 export class DataService {
 
@@ -51,39 +54,48 @@ export class DataService {
 
     this.angular = new TechnologyFront();
     this.angular.title = 'AngularJS';
+    this.angular.tag = 'angularjs';
     frontend.addSubSection(this.angular);
 
     this.angular2 = new TechnologyFront();
     this.angular2.title = 'Angular X';
+    this.angular2.tag = 'Angularx';
     frontend.addSubSection(this.angular2);
 
     this.ionic = new TechnologyFront();
     this.ionic.title = 'Ionic';
+    this.ionic.tag = 'ionic';
     frontend.addSubSection(this.ionic);
 
     this.html = new TechnologyFront();
     this.html.title = 'HTML / CSS / SCSS / jQuery';
+    this.html.tag = 'html';
     frontend.addSubSection(this.html);
 
     this.python_django = new TechnologyBack();
     this.python_django.title = 'Python django & Celery';
+    this.python_django.tag = 'python';
     backend.addSubSection(this.python_django);
 
     this.django_channels_jsonrpc = new TechnologyBack();
     this.django_channels_jsonrpc.title = 'django-channels-jsonrpc';
+    this.django_channels_jsonrpc.tag = 'django-channels-jsonrpc';
     backend.addSubSection(this.django_channels_jsonrpc);
 
     this.php_millerf_admin = new TechnologyBack();
     this.php_millerf_admin.title = 'PHP / Miller/F Admin';
+    this.php_millerf_admin.tag = 'millerf_admin';
     backend.addSubSection(this.php_millerf_admin);
 
 
     this.github = new TechnologyBack();
     this.github.title = 'Github / Travis CI';
+    this.github.tag = 'github';
     github.addSubSection(this.github);
 
     this.gitlab = new TechnologyBack();
     this.gitlab.title = 'Gitlab / Gitlab CI';
+    this.gitlab.tag = 'gitlab';
     this.gitlab.text = 'Nice Project management';
     github.addSubSection(this.gitlab);
 
@@ -103,7 +115,7 @@ export class DataService {
   private createProjects (projects) {
     let project = new Project();
     project.title = 'Mozaik phase 3';
-    project.text = 'Mozaik is a domotic project composed of 3';
+    project.text = require('../template/mozaik3.template.html');
     project.mainImageUrl = 'assets/img/projects/mozaik-phase3/mozaik-phase3.png';
     project.images = ['assets/img/projects/mozaik-phase3/mozaik-phase3-1.jpg',
       'assets/img/projects/mozaik-phase3/mozaik-phase3-2.jpg',
@@ -115,7 +127,7 @@ export class DataService {
 
     project = new Project();
     project.title = 'Mozaik phase 2';
-    project.text = 'Mozaik is a domotic project composed of 3';
+    project.text = require('../template/mozaik2.template.html');
     project.mainImageUrl = 'assets/img/projects/mozaik-phase2/mozaik-phase2.png';
     project.images = ['assets/img/projects/mozaik-phase2/mozaik-phase2-1.png',
       'assets/img/projects/mozaik-phase2/mozaik-phase2-2.png',
@@ -129,7 +141,7 @@ export class DataService {
 
     project = new Project();
     project.title = 'Mozaik phase 1';
-    project.text = 'Mozaik is a domotic project composed of 3';
+    project.text = require('../template/mozaik1.template.html');
     project.mainImageUrl = 'assets/img/projects/mozaik-phase1/mozaik-phase1.png';
     project.images = ['assets/img/projects/mozaik-phase1/mozaik-phase1-1.png',
       'assets/img/projects/mozaik-phase1/mozaik-phase1-2.png',
@@ -140,19 +152,23 @@ export class DataService {
 
     project = new Project();
     project.title = 'CG Spectrum';
-    project.text = '<a href="www.cgspectrum.com.au">CG</a>';
+    project.mainImageUrl = 'assets/img/projects/cgspectrum/logo.png';
+    project.text = '<a target="_blank" href="//www.cgspectrum.com.au">http://www.cgspectrum.com.au</a>';
     project.technologies.push(this.html, this.github, this.php_millerf_admin);
     projects.addSubSection(project);
 
     project = new Project();
     project.title = 'Ramdam';
-    project.text = '<a href="www.ramdam-magazine.com">CG</a>';
+    project.mainImageUrl = 'assets/img/projects/ramdam/logo.svg';
+    project.text = '<a target="_blank" href="//www.ramdam.com/">http://www.ramdam.com/</a>';
     project.technologies.push(this.html, this.php_millerf_admin);
     projects.addSubSection(project);
 
     project = new Project();
     project.title = 'Project Mirador';
-    project.text = '<a href="www.project-mirador.com">Project-mirador</a>';
+    project.mainImageUrl = 'assets/img/projects/mirador/logo.svg';
+
+    project.text = '<a target="_blank" href="//www.project-mirador.com">http://www.project-mirador.com</a>';
     project.technologies.push(this.html, this.php_millerf_admin);
     projects.addSubSection(project);
   }

@@ -20,6 +20,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     loopBottom: true,
     slidesNavigation: true,
     scrollOverflow: true,
+    keyboardScrolling: false,
     scrollingSpeed: 1000,
     menu: '#menu',
     css3: true,
@@ -38,7 +39,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     // tslint:disable-next-line
     (<any>$)(this.contentWrapper.nativeElement).fullpage(this.options);
-
   }
 
   ngOnInit() {

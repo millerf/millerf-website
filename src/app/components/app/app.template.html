@@ -11,24 +11,26 @@
        class="section">
     <div *ngFor="let subsection of section.subsections"
          [ngClass]="{'slide': section.subsections.length > 1}"
-         [attr.data-anchor]="subsection.title">
-      <h1>{{subsection.title}}</h1>
-      <img height="50" src="{{subsection.mainImageUrl}}"/>
-      <div>
-        <p>
-          {{subsection.text}}
+         [attr.data-anchor]="subsection.tag">
 
-        </p>
+      <img class="logo" src="{{subsection.mainImageUrl}}"/>
+
+      <h1>{{subsection.title}}</h1>
+
+      <div>
+        <p [innerHTML]="subsection.text"></p>
         <div class="images" *ngIf="subsection.images && subsection.images.length > 0">
           <div *ngFor="let img of subsection.images"  class="thumbnail">
-            <img height="50" src="{{img}}"/>
+            <a href="{{img}}" data-lightbox="subsection.title" >
+              <img src="{{img}}"/>
+            </a>
           </div>
-
         </div>
         <div class="techused" *ngIf="subsection.technologies.length > 0">
+          <h4>Technologies:</h4>
           <ul>
             <li *ngFor="let tech of subsection.technologies">
-              <a href="#{{tech.section.tag}}/{{tech.title}}">{{ tech ? tech.title : ''}}</a>
+              <a href="#{{tech.section.tag}}/{{tech.tag}}">{{ tech ? tech.title : ''}}</a>
             </li>
           </ul>
         </div>

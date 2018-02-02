@@ -15,9 +15,9 @@ export class Section {
 
 export class SubSection {
   title: string;
+  tag: string;
   text: string;
   section: Section;
-  subsection_number: number;
 }
 
 export class Project extends SubSection {

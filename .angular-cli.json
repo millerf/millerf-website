@@ -21,13 +21,14 @@
       "prefix": "millerf-web",
       "styles": [
         "assets/scss/styles.scss",
-        "../node_modules/fullpage.js/dist/jquery.fullpage.css"
+        "../node_modules/fullpage.js/dist/jquery.fullpage.css",
+        "../node_modules/lightbox2/dist/css/lightbox.min.css"
       ],
       "scripts": [
-
         "../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/fullpage.js/vendors/scrolloverflow.min.js",
-        "../node_modules/fullpage.js/dist/jquery.fullpage.js"
+        "../node_modules/fullpage.js/dist/jquery.fullpage.js",
+        "../node_modules/lightbox2/dist/js/lightbox.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

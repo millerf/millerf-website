@@ -1,12 +1,68 @@
+@import "variables";
+
+
 .section {
+
   text-align: center;
 
+
+
+  p{
+    width:50%;
+    margin:auto;
+    text-align: left;
+  }
+
+  .slide{
+    position:relative;
+  }
+
+  .logo {
+    height:50px;
+  }
+
   .images{
-    display:flex;
-    width: 50%;
+    position: absolute;
+    left:0%;
+    top: $height_menu;
+    height:100%;
     background-color: black;
-    img {
-      flex-grow: 1;
+     a{
+      margin: 50px 20px;
+      display: block;
+
+      img {
+        width: $width_image;
+        height:auto;
+      }
+    }
+  }
+
+  .techused{
+
+    h4{
+      text-decoration: underline;
+    }
+
+    width:50%;
+    margin:auto;
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      margin: 10px 20px 10px 0;
+      padding: 10px 10px;
+      background-color: black;
+      display:inline-block;
+      a{
+        color: white;
+        text-decoration: none;
+      }
     }
   }
 }
+
+
+
