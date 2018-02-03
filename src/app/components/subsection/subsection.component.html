@@ -17,7 +17,7 @@
     <h4>Technologies:</h4>
     <ul>
       <li *ngFor="let tech of subsection.technologies">
-        <a href="#{{tech.section.tag}}/{{tech.tag}}">{{ tech ? tech.title : ''}}</a>
+        <a href="#{{tech.section.tag}}/{{tech.tag}}" (click)="clickTechnology.emit(subsection)">{{ tech ? tech.title : ''}}</a>
       </li>
     </ul>
   </div>

@@ -1,7 +1,11 @@
-import {Component, ElementRef, Input, OnInit, AfterViewInit, ViewChild, ViewEncapsulation} from '@angular/core';
-import { MnFullpageOptions } from 'ngx-fullpage/index';
-import { environment } from '../../../environments/environment';
-import { DataService } from '../../services/data.service';
+import {
+  Component, ElementRef, Input, OnInit, AfterViewInit, ViewChild, ViewEncapsulation,
+  ChangeDetectorRef
+} from '@angular/core';
+import {MnFullpageOptions} from 'ngx-fullpage/index';
+import {environment} from '../../../environments/environment';
+import {DataService} from '../../services/data.service';
+import {Project, TechnologyBack, TechnologyFront} from "../../models";
 
 declare var $;
 
@@ -33,16 +37,22 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   public displaySplashscreen = true;
   public removeSplashscreen = false;
+  public previousProject = null;
+  public slideLoaded = false;
 
-  constructor(public dataService: DataService) {}
+  constructor (public dataService: DataService, private cd: ChangeDetectorRef) {
+  }
 
-  ngAfterViewInit() {
+  ngAfterViewInit () {
 
     // tslint:disable-next-line
+    this.options.onLeave = () => this.onLeave();
+    this.options.onSlideLeave = () => this.onSlideLeave();
+    this.options.afterSlideLoad = () => this.onSlideLoad();
     (<any>$)(this.contentWrapper.nativeElement).fullpage(this.options);
   }
 
-  ngOnInit() {
+  ngOnInit () {
 
     setTimeout(() => {
       this.displaySplashscreen = false;
@@ -54,5 +64,33 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     }, environment.production ? 5000 : 1000);
 
+  }
+
+  public clickTechnology (previousProject: Project) {
+
+    // we use timeout to prevent afterLoad to clear the parameter
+    this.previousProject = previousProject;
+    this.slideLoaded = false;
+  }
+
+  public onLeave () {
+    if (this.slideLoaded) {
+      this.previousProject = null;
+    }
+  }
+
+  public onSlideLeave () {
+    if (this.slideLoaded) {
+      this.previousProject = null;
+    }
+  }
+
+  public onSlideLoad () {
+    this.slideLoaded = true;
+
+    // As those events are not angular-based and or click-based we need to force the rendering
+    if (this.previousProject != null) {
+      this.cd.markForCheck();
+    }
   }
 }

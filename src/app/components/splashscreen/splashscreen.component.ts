@@ -16,7 +16,7 @@ export class SplashscreenComponent implements OnInit, OnDestroy {
 
   private textIndex = 0;
   private textCycle: Array<string> = [
-    'Updating website',
+    'Loading website',
     'Enhancing graphics',
     'Calculating vertices',
     'Refactoring text',

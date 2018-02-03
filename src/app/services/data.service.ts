@@ -17,6 +17,9 @@ export class DataService {
   private django_channels_jsonrpc: TechnologyBack;
   private github: TechnologyBack;
   private gitlab: TechnologyBack;
+  private mysql: TechnologyBack;
+  private postgresql: TechnologyBack;
+
 
   constructor () {
     const projects = new Section();
@@ -88,6 +91,15 @@ export class DataService {
     this.php_millerf_admin.tag = 'millerf_admin';
     backend.addSubSection(this.php_millerf_admin);
 
+    this.mysql = new TechnologyBack();
+    this.mysql.title = 'MySQL';
+    this.mysql.tag = 'mysql';
+    backend.addSubSection(this.mysql);
+
+    this.postgresql = new TechnologyBack();
+    this.postgresql.title = 'MySQL';
+    this.postgresql.tag = 'mysql';
+    backend.addSubSection(this.postgresql);
 
     this.github = new TechnologyBack();
     this.github.title = 'Github / Travis CI';
@@ -125,7 +137,7 @@ export class DataService {
       'assets/img/projects/mozaik-phase3/mozaik-phase3-2.jpg',
       'assets/img/projects/mozaik-phase3/mozaik-phase3-3.jpg',
       'assets/img/projects/mozaik-phase3/mozaik-phase3-4.jpg'];
-    project.technologies.push(this.angular2, this.ionic, this.python_django, this.gitlab, this.django_channels_jsonrpc);
+    project.technologies.push(this.angular2, this.ionic, this.python_django, this.gitlab, this.django_channels_jsonrpc, this.postgresql);
     projects.addSubSection(project);
 
 
@@ -141,7 +153,7 @@ export class DataService {
       'assets/img/projects/mozaik-phase2/mozaik-phase2-5.png',
       'assets/img/projects/mozaik-phase2/mozaik-phase2-6.png',
       'assets/img/projects/mozaik-phase2/mozaik-phase2-7.png'];
-    project.technologies.push(this.angular, this.ionic, this.python_django, this.gitlab, this.html);
+    project.technologies.push(this.angular, this.ionic, this.python_django, this.gitlab, this.html, this.postgresql);
     projects.addSubSection(project);
 
     project = new Project();
@@ -152,7 +164,7 @@ export class DataService {
       'assets/img/projects/mozaik-phase1/mozaik-phase1-1.png',
       'assets/img/projects/mozaik-phase1/mozaik-phase1-2.png',
       'assets/img/projects/mozaik-phase1/mozaik-phase1-3.png'];
-    project.technologies.push(this.html, this.ionic, this.php_millerf_admin);
+    project.technologies.push(this.html, this.ionic, this.php_millerf_admin, this.mysql);
     projects.addSubSection(project);
 
 
@@ -164,7 +176,7 @@ export class DataService {
       'assets/img/projects/cgspectrum/cgspectrum2.png',
       'assets/img/projects/cgspectrum/cgspectrum3.png'];
     project.text = '<a target="_blank" href="//www.cgspectrum.com.au">http://www.cgspectrum.com.au</a>';
-    project.technologies.push(this.html, this.github, this.php_millerf_admin);
+    project.technologies.push(this.html, this.github, this.php_millerf_admin, this.mysql);
     projects.addSubSection(project);
 
     project = new Project();
@@ -174,14 +186,14 @@ export class DataService {
       'assets/img/projects/mirador/mirador2.png'];
     project.mainImageUrl = 'assets/img/projects/mirador/logo.svg';
     project.text = '<a target="_blank" href="//www.project-mirador.com">http://www.project-mirador.com</a> is an Europe-founded association that helps raise awareness about geo-political crisis and conflicts. <br/><br/> Activities are based upon a Javascript simulator and chat between participants. ';
-    project.technologies.push(this.html, this.php_millerf_admin);
+    project.technologies.push(this.html, this.php_millerf_admin, this.mysql);
     projects.addSubSection(project);
 
     project = new Project();
     project.title = 'Ramdam';
     project.mainImageUrl = 'assets/img/projects/ramdam/logo.svg';
     project.text = '<a target="_blank" href="//www.ramdam.com/">http://www.ramdam.com/</a> is an online school for 3D and animation artists based in Melbourne, Australia.';
-    project.technologies.push(this.html, this.php_millerf_admin);
+    project.technologies.push(this.html, this.php_millerf_admin, this.mysql);
     projects.addSubSection(project);
 
   }
