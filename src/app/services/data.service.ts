@@ -8,42 +8,44 @@ declare var require;
 export class DataService {
 
   public sections: Array<Section> = [];
-  private angular: TechnologyFront;
-  private angular2: TechnologyFront;
-  private ionic: TechnologyFront;
-  private html: TechnologyFront;
-  private php_millerf_admin: TechnologyBack;
-  private python_django: TechnologyBack;
-  private django_channels_jsonrpc: TechnologyBack;
-  private github: TechnologyBack;
-  private gitlab: TechnologyBack;
-  private mysql: TechnologyBack;
-  private postgresql: TechnologyBack;
+
+  public presentation: Section;
+  public angular: TechnologyFront;
+  public angular2: TechnologyFront;
+  public ionic: TechnologyFront;
+  public html: TechnologyFront;
+  public php_millerf_admin: TechnologyBack;
+  public python_django: TechnologyBack;
+  public django_channels_jsonrpc: TechnologyBack;
+  public github: TechnologyBack;
+  public gitlab: TechnologyBack;
+  public mysql: TechnologyBack;
+  public postgresql: TechnologyBack;
 
 
   constructor () {
-    const projects = new Section();
+    this.presentation = new Section('presentation');
+    this.presentation.title = 'Presentation';
+    this.presentation.display = false;
+
+    const projects = new Section('projects');
     projects.title = 'Projects';
-    projects.tag = 'projects';
 
-    const frontend = new Section();
+    const frontend = new Section('frontend');
     frontend.title = 'Front-end';
-    frontend.tag = 'frontend';
 
-    const backend = new Section();
+    const backend = new Section('backend');
     backend.title = 'Back-end';
-    backend.tag = 'backend';
 
-    const github = new Section();
+    const github = new Section('github');
     github.title = 'Github / Gitlab';
-    github.tag = 'github';
 
-    const contact = new Section();
+    const contact = new Section('contact');
     contact.title = 'Contact';
-    contact.tag = 'contact';
     contact.display = false;
 
-
+    this.sections.push(this.presentation);
+    this.presentation.section_number = this.sections.length - 1;
     this.sections.push(projects);
     projects.section_number = this.sections.length - 1;
     this.sections.push(frontend);
@@ -55,63 +57,65 @@ export class DataService {
     this.sections.push(contact);
     contact.section_number = this.sections.length - 1;
 
-    this.angular = new TechnologyFront();
+    this.angular = new TechnologyFront('angularjs');
     this.angular.title = 'AngularJS';
-    this.angular.tag = 'angularjs';
+    this.angular.text = require('../template/angularjs.template.html');
+
     frontend.addSubSection(this.angular);
 
-    this.angular2 = new TechnologyFront();
+    this.angular2 = new TechnologyFront('angularx');
     this.angular2.title = 'Angular X';
-    this.angular2.tag = 'Angularx';
+    this.angular2.text = require('../template/angularx.template.html');
+
     frontend.addSubSection(this.angular2);
 
-    this.ionic = new TechnologyFront();
+    this.ionic = new TechnologyFront('ionic');
     this.ionic.title = 'Ionic';
-    this.ionic.tag = 'ionic';
+    this.ionic.text = require('../template/ionic.template.html');
+
     frontend.addSubSection(this.ionic);
 
-    this.html = new TechnologyFront();
-    this.html.title = 'HTML / CSS / SCSS / jQuery';
-    this.html.tag = 'html';
+    this.html = new TechnologyFront('html5');
+    this.html.title = 'HTML 5/ CSS / SCSS / jQuery';
+    this.html.text = require('../template/html5.template.html');
     frontend.addSubSection(this.html);
 
-    this.python_django = new TechnologyBack();
+    this.python_django = new TechnologyBack('python');
     this.python_django.title = 'Python django & Celery';
-    this.python_django.tag = 'python';
+    this.python_django.text = require('../template/pythondjango.template.html');
     backend.addSubSection(this.python_django);
 
-    this.django_channels_jsonrpc = new TechnologyBack();
+    this.django_channels_jsonrpc = new TechnologyBack('django-channels-jsonrpc');
     this.django_channels_jsonrpc.title = 'django-channels-jsonrpc';
-    this.django_channels_jsonrpc.tag = 'django-channels-jsonrpc';
     this.django_channels_jsonrpc.github = 'millerf/django-channels-jsonrpc';
+    this.django_channels_jsonrpc.text = require('../template/djangochannels.template.html');
     backend.addSubSection(this.django_channels_jsonrpc);
 
-    this.php_millerf_admin = new TechnologyBack();
+    this.php_millerf_admin = new TechnologyBack('millerf_admin');
     this.php_millerf_admin.title = 'PHP / Miller/F Admin';
-    this.php_millerf_admin.tag = 'millerf_admin';
+    this.php_millerf_admin.text = require('../template/millerfadmin.template.html');
     backend.addSubSection(this.php_millerf_admin);
 
-    this.mysql = new TechnologyBack();
+    this.mysql = new TechnologyBack('mysql');
     this.mysql.title = 'MySQL';
-    this.mysql.tag = 'mysql';
+    this.mysql.text = require('../template/mysql.template.html');
     backend.addSubSection(this.mysql);
 
-    this.postgresql = new TechnologyBack();
-    this.postgresql.title = 'MySQL';
-    this.postgresql.tag = 'mysql';
+
+    this.postgresql = new TechnologyBack('postgre');
+    this.postgresql.title = 'PostgreSQL';
+    this.postgresql.text = require('../template/postgre.template.html');
     backend.addSubSection(this.postgresql);
 
-    this.github = new TechnologyBack();
+    this.github = new TechnologyBack('millerf');
     this.github.title = 'Github / Travis CI';
-    this.github.text = require('../template/github.template.html');
     this.github.tag = 'github';
-    this.github.github = 'millerf';
+    this.github.text = require('../template/github.template.html');
     github.addSubSection(this.github);
 
-    this.gitlab = new TechnologyBack();
+    this.gitlab = new TechnologyBack('gitlab');
     this.gitlab.title = 'Gitlab / Gitlab CI';
-    this.gitlab.tag = 'gitlab';
-    this.gitlab.text = 'Nice Project management';
+    this.gitlab.text = require('../template/gitlab.template.html');
     github.addSubSection(this.gitlab);
 
     this.createProjects(projects);
@@ -127,8 +131,12 @@ export class DataService {
   }
 
 
+  public getAnchors() {
+    return this.sections.map( (section) => section.tag);
+  }
+
   private createProjects (projects) {
-    let project = new Project();
+    let project = new Project('mozaik-3');
     project.title = 'Mozaik phase 3';
     project.text = require('../template/mozaik3.template.html');
     project.mainImageUrl = 'assets/img/projects/mozaik-phase3/mozaik-phase3.png';
@@ -137,11 +145,11 @@ export class DataService {
       'assets/img/projects/mozaik-phase3/mozaik-phase3-2.jpg',
       'assets/img/projects/mozaik-phase3/mozaik-phase3-3.jpg',
       'assets/img/projects/mozaik-phase3/mozaik-phase3-4.jpg'];
-    project.technologies.push(this.angular2, this.ionic, this.python_django, this.gitlab, this.django_channels_jsonrpc, this.postgresql);
+    project.addTechonologies(this.angular2, this.ionic, this.python_django, this.gitlab, this.django_channels_jsonrpc, this.postgresql);
     projects.addSubSection(project);
 
 
-    project = new Project();
+    project = new Project('mozaik-2');
     project.title = 'Mozaik phase 2';
     project.text = require('../template/mozaik2.template.html');
     project.mainImageUrl = 'assets/img/projects/mozaik-phase2/mozaik-phase2.png';
@@ -153,10 +161,10 @@ export class DataService {
       'assets/img/projects/mozaik-phase2/mozaik-phase2-5.png',
       'assets/img/projects/mozaik-phase2/mozaik-phase2-6.png',
       'assets/img/projects/mozaik-phase2/mozaik-phase2-7.png'];
-    project.technologies.push(this.angular, this.ionic, this.python_django, this.gitlab, this.html, this.postgresql);
+    project.addTechonologies(this.angular, this.ionic, this.python_django, this.gitlab, this.html, this.postgresql);
     projects.addSubSection(project);
 
-    project = new Project();
+    project = new Project('mozaik-1');
     project.title = 'Mozaik phase 1';
     project.text = require('../template/mozaik1.template.html');
     project.mainImageUrl = 'assets/img/projects/mozaik-phase1/mozaik-phase1.png';
@@ -164,11 +172,11 @@ export class DataService {
       'assets/img/projects/mozaik-phase1/mozaik-phase1-1.png',
       'assets/img/projects/mozaik-phase1/mozaik-phase1-2.png',
       'assets/img/projects/mozaik-phase1/mozaik-phase1-3.png'];
-    project.technologies.push(this.html, this.ionic, this.php_millerf_admin, this.mysql);
+    project.addTechonologies(this.html, this.ionic, this.php_millerf_admin, this.mysql);
     projects.addSubSection(project);
 
 
-    project = new Project();
+    project = new Project('cg-spectrum');
     project.title = 'CG Spectrum';
     project.mainImageUrl = 'assets/img/projects/cgspectrum/logo.png';
     project.images = [
@@ -176,24 +184,24 @@ export class DataService {
       'assets/img/projects/cgspectrum/cgspectrum2.png',
       'assets/img/projects/cgspectrum/cgspectrum3.png'];
     project.text = '<a target="_blank" href="//www.cgspectrum.com.au">http://www.cgspectrum.com.au</a>';
-    project.technologies.push(this.html, this.github, this.php_millerf_admin, this.mysql);
+    project.addTechonologies(this.html, this.github, this.php_millerf_admin, this.mysql);
     projects.addSubSection(project);
 
-    project = new Project();
+    project = new Project('mirador');
     project.title = 'Project Mirador';
     project.images = [
       'assets/img/projects/mirador/mirador1.png',
       'assets/img/projects/mirador/mirador2.png'];
     project.mainImageUrl = 'assets/img/projects/mirador/logo.svg';
     project.text = '<a target="_blank" href="//www.project-mirador.com">http://www.project-mirador.com</a> is an Europe-founded association that helps raise awareness about geo-political crisis and conflicts. <br/><br/> Activities are based upon a Javascript simulator and chat between participants. ';
-    project.technologies.push(this.html, this.php_millerf_admin, this.mysql);
+    project.addTechonologies(this.html, this.php_millerf_admin, this.mysql);
     projects.addSubSection(project);
 
-    project = new Project();
+    project = new Project('ramdam');
     project.title = 'Ramdam';
     project.mainImageUrl = 'assets/img/projects/ramdam/logo.svg';
     project.text = '<a target="_blank" href="//www.ramdam.com/">http://www.ramdam.com/</a> is an online school for 3D and animation artists based in Melbourne, Australia.';
-    project.technologies.push(this.html, this.php_millerf_admin, this.mysql);
+    project.addTechonologies(this.html, this.php_millerf_admin, this.mysql);
     projects.addSubSection(project);
 
   }

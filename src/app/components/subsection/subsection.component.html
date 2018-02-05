@@ -1,33 +1,46 @@
-<div *ngIf="subsection.extra != null" [innerHTML]="subsection.extra | keepHtml">
-</div>
+<section>
 
-<img class="logo" src="{{subsection.mainImageUrl}}"/>
-
-<h1>{{subsection.title}}</h1>
-
-<millerf-web-github-ribbon
-  *ngIf="subsection.github != null"
-  [address]="subsection.github"></millerf-web-github-ribbon>
-
-<div>
-  <p [innerHTML]="subsection.text"></p>
-
-  <div class="techused"
-       *ngIf="subsection.technologies.length > 0">
-    <h4>Technologies:</h4>
-    <ul>
-      <li *ngFor="let tech of subsection.technologies">
-        <a href="#{{tech.section.tag}}/{{tech.tag}}" (click)="clickTechnology.emit(subsection)">{{ tech ? tech.title : ''}}</a>
-      </li>
-    </ul>
+  <div *ngIf="subsection.extra != null" [innerHTML]="subsection.extra | keepHtml">
   </div>
-</div>
 
-<div class="images"
-     *ngIf="subsection.images && subsection.images.length > 0">
-  <div *ngFor="let img of subsection.images" class="thumbnail">
-    <a href="{{img}}" data-lightbox="subsection.title">
-      <img src="{{img}}"/>
-    </a>
+  <img class="logo" src="{{subsection.mainImageUrl}}"/>
+
+  <h1>{{subsection.title}}</h1>
+
+  <millerf-web-github-ribbon
+    *ngIf="subsection.github != null"
+    [address]="subsection.github"></millerf-web-github-ribbon>
+
+  <div>
+    <p [innerHTML]="subsection.text"></p>
+
+    <div class="techused"
+         *ngIf="subsection.isProject && subsection.technologies.length > 0">
+      <h4>Technologies:</h4>
+      <ul>
+        <li *ngFor="let tech of subsection.technologies">
+          <a [href]="tech.getAnchor()" (click)="clickTechnology.emit(subsection)">{{ tech ? tech.title : ''}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="techused"
+         *ngIf="!subsection.isProject">
+      <h4>Projects:</h4>
+      <ul>
+        <li *ngFor="let tech of subsection.projects">
+          <a [href]="tech.getAnchor()" (click)="clickTechnology.emit(subsection)">{{ tech ? tech.title : ''}}</a>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
+
+  <div class="images"
+       *ngIf="subsection.images && subsection.images.length > 0">
+    <div *ngFor="let img of subsection.images" class="thumbnail">
+      <a href="{{img}}" data-lightbox="subsection.title">
+        <img src="{{img}}"/>
+      </a>
+    </div>
+  </div>
+</section>
