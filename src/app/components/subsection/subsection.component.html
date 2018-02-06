@@ -7,7 +7,8 @@
   <div class="techused" #techused
        *ngIf="subsection.isProject && subsection.technologies.length > 0">
     <div id="backToProject" *ngIf="previousAnchor!=null && slideLoaded" class="animated fadeIn">
-      <a [href]="previousAnchor.getAnchor()"> < {{previousAnchor.title}} <br/><img src="{{previousAnchor.mainImageUrl}}"/></a>
+      <a [href]="previousAnchor.getAnchor()"> < {{previousAnchor.title}} <br/>
+        <img src="{{previousAnchor.mainImageUrl}}"/></a>
     </div>
     <h4>Technologies:</h4>
     <ul>
@@ -33,7 +34,7 @@
   <div class="text-content">
     <div class="images">
       <div *ngFor="let img of subsection.images" class="thumbnail">
-        <a href="{{img}}" data-lightbox="subsection.title">
+        <a href="{{img}}" [attr.data-lightbox]="subsection.title">
           <img src="{{img}}"/>
         </a>
       </div>
