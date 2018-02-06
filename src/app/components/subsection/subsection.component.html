@@ -5,26 +5,18 @@
 
 
   <div class="techused" #techused
-       *ngIf="subsection.isProject && subsection.technologies.length > 0">
+       *ngIf="!subsection.isProject || (subsection.isProject || subsection.technologies.length > 0)">
     <div id="backToProject" *ngIf="previousAnchor!=null && slideLoaded" class="animated fadeIn">
       <a [href]="previousAnchor.getAnchor()"> < {{previousAnchor.title}} <br/>
         <img src="{{previousAnchor.mainImageUrl}}"/></a>
     </div>
-    <h4>Technologies:</h4>
-    <ul>
+    <h4>Related {{subsection.isProject? 'Technologies' : 'Projects'}}:</h4>
+    <ul *ngIf="subsection.isProject">
       <li *ngFor="let tech of subsection.technologies">
         <a [href]="tech.getAnchor()" (click)="clickTechnology.emit(subsection)">{{ tech ? tech.title : ''}}</a>
       </li>
     </ul>
-  </div>
-
-  <div class="techused" #techused2
-       *ngIf="!subsection.isProject" >
-    <div id="backToProject" *ngIf="previousAnchor!=null && slideLoaded" class="animated fadeIn  ">
-      <a [href]="previousAnchor.getAnchor()"> < {{previousAnchor.title}}<br/> <img src="{{previousAnchor.mainImageUrl}}"/></a>
-    </div>
-    <h4>Related Projects:</h4>
-    <ul>
+    <ul *ngIf="!subsection.isProject">
       <li *ngFor="let tech of subsection.projects">
         <a [href]="tech.getAnchor()" (click)="clickTechnology.emit(subsection)">{{ tech ? tech.title : ''}}</a>
       </li>
