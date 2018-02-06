@@ -18,7 +18,8 @@ export class SubsectionComponent implements AfterViewInit {
   @ViewChild('section') section;
 
   @Input() subsection;
-
+  @Input() previousAnchor;
+  @Input() slideLoaded;
   @Output() clickTechnology: EventEmitter<Project> = new EventEmitter();
 
   constructor () {

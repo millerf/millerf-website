@@ -6,6 +6,9 @@
 
   <div class="techused" #techused
        *ngIf="subsection.isProject && subsection.technologies.length > 0">
+    <div id="backToProject" *ngIf="previousAnchor!=null && slideLoaded" class="animated fadeIn">
+      <a [href]="previousAnchor.getAnchor()"> < {{previousAnchor.title}} <br/><img src="{{previousAnchor.mainImageUrl}}"/></a>
+    </div>
     <h4>Technologies:</h4>
     <ul>
       <li *ngFor="let tech of subsection.technologies">
@@ -16,6 +19,9 @@
 
   <div class="techused" #techused2
        *ngIf="!subsection.isProject" >
+    <div id="backToProject" *ngIf="previousAnchor!=null && slideLoaded" class="animated fadeIn  ">
+      <a [href]="previousAnchor.getAnchor()"> < {{previousAnchor.title}}<br/> <img src="{{previousAnchor.mainImageUrl}}"/></a>
+    </div>
     <h4>Projects:</h4>
     <ul>
       <li *ngFor="let tech of subsection.projects">

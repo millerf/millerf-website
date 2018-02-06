@@ -4,9 +4,7 @@
 
 <millerf-web-menu></millerf-web-menu>
 
-<div id="backToProject" *ngIf="previousAnchor!=null && slideLoaded">
-  <a [href]="previousAnchor.getAnchor()"> < {{previousAnchor.title}}</a>
-</div>
+
 
 <div id="content-wrapper" #contentWrapper>
 
@@ -38,9 +36,11 @@
     <millerf-web-subsection
         *ngFor="let subsection of section.subsections"
         (clickTechnology)="clickTechnology($event)"
-         [ngClass]="{'slide': section.subsections.length > 1}"
-         [attr.data-anchor]="subsection.tag"
-         [subsection]="subsection">
+       [ngClass]="{'slide': section.subsections.length > 1}"
+       [attr.data-anchor]="subsection.tag"
+       [subsection]="subsection"
+        [previousAnchor]="previousAnchor"
+    [slideLoaded]="slideLoaded">
     </millerf-web-subsection>
 
   </div>
