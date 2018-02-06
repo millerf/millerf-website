@@ -1,46 +1,49 @@
-<section>
+<section #section>
 
   <div *ngIf="subsection.extra != null" [innerHTML]="subsection.extra | keepHtml">
   </div>
 
-  <img class="logo" src="{{subsection.mainImageUrl}}"/>
 
-  <h1>{{subsection.title}}</h1>
-
-  <millerf-web-github-ribbon
-    *ngIf="subsection.github != null"
-    [address]="subsection.github"></millerf-web-github-ribbon>
-
-  <div>
-    <p [innerHTML]="subsection.text"></p>
-
-    <div class="techused"
-         *ngIf="subsection.isProject && subsection.technologies.length > 0">
-      <h4>Technologies:</h4>
-      <ul>
-        <li *ngFor="let tech of subsection.technologies">
-          <a [href]="tech.getAnchor()" (click)="clickTechnology.emit(subsection)">{{ tech ? tech.title : ''}}</a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="techused"
-         *ngIf="!subsection.isProject">
-      <h4>Projects:</h4>
-      <ul>
-        <li *ngFor="let tech of subsection.projects">
-          <a [href]="tech.getAnchor()" (click)="clickTechnology.emit(subsection)">{{ tech ? tech.title : ''}}</a>
-        </li>
-      </ul>
-    </div>
+  <div class="techused" #techused
+       *ngIf="subsection.isProject && subsection.technologies.length > 0">
+    <h4>Technologies:</h4>
+    <ul>
+      <li *ngFor="let tech of subsection.technologies">
+        <a [href]="tech.getAnchor()" (click)="clickTechnology.emit(subsection)">{{ tech ? tech.title : ''}}</a>
+      </li>
+    </ul>
   </div>
 
-  <div class="images"
-       *ngIf="subsection.images && subsection.images.length > 0">
-    <div *ngFor="let img of subsection.images" class="thumbnail">
-      <a href="{{img}}" data-lightbox="subsection.title">
-        <img src="{{img}}"/>
-      </a>
+  <div class="techused" #techused2
+       *ngIf="!subsection.isProject" >
+    <h4>Projects:</h4>
+    <ul>
+      <li *ngFor="let tech of subsection.projects">
+        <a [href]="tech.getAnchor()" (click)="clickTechnology.emit(subsection)">{{ tech ? tech.title : ''}}</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="text-content">
+    <div class="images">
+      <div *ngFor="let img of subsection.images" class="thumbnail">
+        <a href="{{img}}" data-lightbox="subsection.title">
+          <img src="{{img}}"/>
+        </a>
+      </div>
+    </div>
+
+    <img class="logo" src="{{subsection.mainImageUrl}}"/>
+
+    <h1>{{subsection.title}}</h1>
+
+    <millerf-web-github-ribbon
+      *ngIf="subsection.github != null"
+      [address]="subsection.github"></millerf-web-github-ribbon>
+
+    <div class="description">
+      <p [innerHTML]="subsection.text" class="text_highlighted"></p>
+      <p [innerHTML]="subsection.text2" class="text"></p>
     </div>
   </div>
 </section>

@@ -27,6 +27,7 @@ export class Section extends Anchored {
 export class SubSection extends Anchored {
   title: string;
   text: string;
+  text2: string;
   github: string = null;
   section: Section;
 
