@@ -31,13 +31,16 @@ export class SubsectionComponent implements AfterViewInit {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
+
     const screenHeight  = window.innerHeight;
-      this.section.nativeElement.style.height = screenHeight + 'px';
+    const sectionHeight = this.section.nativeElement.offsetHeight;
+    const height = Math.max(screenHeight, sectionHeight);
     if (this.techused != null) {
-      this.techused.nativeElement.style.height = screenHeight + 'px';
+      this.techused.nativeElement.style.height = height + 'px';
     }
     if (this.techused2 != null) {
-      this.techused2.nativeElement.style.height = screenHeight + 'px';
+      this.techused2.nativeElement.style.height = height + 'px';
     }
+
   }
 }

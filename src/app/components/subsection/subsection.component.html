@@ -22,7 +22,7 @@
     <div id="backToProject" *ngIf="previousAnchor!=null && slideLoaded" class="animated fadeIn  ">
       <a [href]="previousAnchor.getAnchor()"> < {{previousAnchor.title}}<br/> <img src="{{previousAnchor.mainImageUrl}}"/></a>
     </div>
-    <h4>Projects:</h4>
+    <h4>Related Projects:</h4>
     <ul>
       <li *ngFor="let tech of subsection.projects">
         <a [href]="tech.getAnchor()" (click)="clickTechnology.emit(subsection)">{{ tech ? tech.title : ''}}</a>
