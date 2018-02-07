@@ -24,7 +24,7 @@
   </div>
 
   <div class="text-content">
-    <div class="images">
+    <div class="images" #images [ngClass]="{'no-images':subsection.images.length == 0}">
       <div *ngFor="let img of subsection.images" class="thumbnail">
         <a href="{{img}}" [attr.data-lightbox]="subsection.title">
           <img src="{{img}}"/>
@@ -32,7 +32,9 @@
       </div>
     </div>
 
-    <img class="logo" src="{{subsection.mainImageUrl}}"/>
+    <div class="logo_wrapper">
+      <img class="logo" src="{{subsection.mainImageUrl}}"/>
+    </div>
 
     <h1>{{subsection.title}}</h1>
 

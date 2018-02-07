@@ -28,7 +28,8 @@
         "../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/fullpage.js/vendors/scrolloverflow.min.js",
         "../node_modules/fullpage.js/dist/jquery.fullpage.js",
-        "../node_modules/lightbox2/dist/js/lightbox.js"
+        "../node_modules/lightbox2/dist/js/lightbox.js",
+        "../node_modules/jquery-mousewheel/jquery.mousewheel.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
