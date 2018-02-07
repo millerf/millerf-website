@@ -183,6 +183,14 @@ and (max-device-width : 667px) {
 
   }
 
+
+  #presentation_section{
+    #presentation{
+      width:80%;
+      margin: 100px 10% 0;
+    }
+  }
+
   #backToProject{
     display: none;
   }
@@ -192,6 +200,8 @@ and (max-device-width : 667px) {
     flex-direction: column-reverse;
     margin-left: 0;
     padding-bottom: 75px;
+    padding-top: 2 * $iphone_height_menu;
+
     .techused{
       height: auto !important;
       width:100%;
@@ -203,15 +213,47 @@ and (max-device-width : 667px) {
     .text-content {
       padding: 0;
       width: 100%;
+      display: flex;
+      flex-direction: column;
       overflow: auto;
       min-width: 0;
+
+      .logo_wrapper{
+        margin-top:10px;
+        order: 0;
+      }
+
+      h1{
+        order: 1;
+        margin: 0;
+      }
+
+      .images{
+
+        &.no-images{
+          display:none;
+        }
+        order: 2;
+        height: 100px !important;
+        background-color: rgba(0,0,0,0.6);
+        padding: 10px 0;
+        img {
+          height: 100px !important;
+        }
+
+      }
+      .description{
+        order: 3;
+      }
+
+
 
       .description{
         padding-top: 0;
 
         p{
-          width:100%;
-
+          width: 70%;
+          padding: 0px 15%;
         }
       }
     }
