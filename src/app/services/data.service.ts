@@ -37,7 +37,7 @@ export class DataService {
     const backend = new Section('backend');
     backend.title = 'Back-end';
 
-    const github = new Section('github');
+    const github = new Section('git');
     github.title = 'Github / Gitlab';
 
     const contact = new Section('contact');
@@ -58,36 +58,42 @@ export class DataService {
     contact.section_number = this.sections.length - 1;
 
     this.angular = new TechnologyFront('angularjs');
+    this.angular.mainImageUrl = 'assets/img/technologies/AngularJS.png';
     this.angular.title = 'AngularJS';
     this.angular.text = require('../template/angularjs.template.html');
     this.angular.text2 = require('../template/angularjs-2.template.html');
     frontend.addSubSection(this.angular);
 
     this.angular2 = new TechnologyFront('angularx');
+    this.angular2.mainImageUrl = 'assets/img/technologies/angular.png';
     this.angular2.title = 'Angular X';
     this.angular2.text = require('../template/angularx.template.html');
     this.angular2.text2 = require('../template/angularx-2.template.html');
     frontend.addSubSection(this.angular2);
 
     this.ionic = new TechnologyFront('ionic');
+    this.ionic.mainImageUrl = 'assets/img/technologies/ionic.png';
     this.ionic.title = 'Ionic';
     this.ionic.text = require('../template/ionic.template.html');
     this.ionic.text2 = require('../template/ionic-2.template.html');
     frontend.addSubSection(this.ionic);
 
     this.html = new TechnologyFront('html5');
+    this.html.mainImageUrl = 'assets/img/technologies/HTMLCSSJS.jpg';
     this.html.title = 'HTML 5/ CSS / SCSS / jQuery';
     this.html.text = require('../template/html5.template.html');
     this.html.text2 = require('../template/html5-2.template.html');
     frontend.addSubSection(this.html);
 
     this.python_django = new TechnologyBack('python');
+    this.python_django.mainImageUrl = 'assets/img/technologies/python-django.png';
     this.python_django.title = 'Python django & Celery';
     this.python_django.text = require('../template/pythondjango.template.html');
     this.python_django.text2 = require('../template/pythondjango-2.template.html');
     backend.addSubSection(this.python_django);
 
     this.django_channels_jsonrpc = new TechnologyBack('django-channels-jsonrpc');
+    this.django_channels_jsonrpc.mainImageUrl = 'assets/img/technologies/django-channels-logo.webp';
     this.django_channels_jsonrpc.title = 'django-channels-jsonrpc';
     this.django_channels_jsonrpc.github = 'millerf/django-channels-jsonrpc';
     this.django_channels_jsonrpc.text = require('../template/djangochannels.template.html');
@@ -95,12 +101,14 @@ export class DataService {
     backend.addSubSection(this.django_channels_jsonrpc);
 
     this.php_millerf_admin = new TechnologyBack('millerf_admin');
+    this.php_millerf_admin.mainImageUrl = 'assets/img/technologies/php.svg';
     this.php_millerf_admin.title = 'PHP / Miller/F Admin';
     this.php_millerf_admin.text = require('../template/millerfadmin.template.html');
     this.php_millerf_admin.text2 = require('../template/millerfadmin-2.template.html');
     backend.addSubSection(this.php_millerf_admin);
 
     this.mysql = new TechnologyBack('mysql');
+    this.mysql.mainImageUrl = 'assets/img/technologies/mysql.png';
     this.mysql.title = 'MySQL';
     this.mysql.text = require('../template/mysql.template.html');
     this.mysql.text2 = require('../template/mysql-2.template.html');
@@ -108,12 +116,14 @@ export class DataService {
 
 
     this.postgresql = new TechnologyBack('postgre');
+    this.postgresql.mainImageUrl = 'assets/img/technologies/postgresql-logo.png';
     this.postgresql.title = 'PostgreSQL';
     this.postgresql.text = require('../template/postgre.template.html');
     this.postgresql.text2 = require('../template/postgre-2.template.html');
     backend.addSubSection(this.postgresql);
 
     this.github = new TechnologyBack('millerf');
+    this.github.mainImageUrl = 'assets/img/technologies/github-logo.png';
     this.github.title = 'Github / Travis CI';
     this.github.tag = 'github';
     this.github.text = require('../template/github.template.html');
@@ -121,6 +131,7 @@ export class DataService {
     github.addSubSection(this.github);
 
     this.gitlab = new TechnologyBack('gitlab');
+    this.gitlab.mainImageUrl = 'assets/img/technologies/gitlab.png';
     this.gitlab.title = 'Gitlab / Gitlab CI';
     this.gitlab.text = require('../template/gitlab.template.html');
     this.gitlab.text2 = require('../template/gitlab-2.template.html');

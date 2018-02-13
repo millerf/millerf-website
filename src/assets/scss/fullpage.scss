@@ -28,6 +28,17 @@ i{
   }
 }
 
+#scrollDown-wrapper{
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  left: 0;
+  img{
+    margin: auto;
+    height: 100px;
+  }
+}
+
 .fp-slidesNav {
   span {
     background: $millerf_red !important;
