@@ -86,12 +86,13 @@ i{
       position: relative;
     }
 
-    .logo {
-      height: 50px;
-    }
+
 
     .images {
 
+      &.no-images{
+        display:none;
+      }
       &::-webkit-scrollbar {
         display: none;
       }
@@ -143,6 +144,21 @@ i{
       padding-bottom: 75px;
       min-width: 640px;
       overflow: auto;
+
+
+      &.no-images{
+
+        margin-top: $height_menu + 50px;
+
+        .logo {
+          height: 150px;
+        }
+      }
+
+      .logo {
+        height: 50px;
+      }
+
     }
 
     .description {
@@ -254,12 +270,18 @@ and (max-width : 950px) {
     }
 
     .text-content {
+
       padding: 0;
       width: 100%;
       display: flex;
       flex-direction: column;
       overflow: auto;
       min-width: 0;
+
+
+      &.no-images {
+        margin-top: 0;
+      }
 
       .logo_wrapper{
         margin-top:10px;

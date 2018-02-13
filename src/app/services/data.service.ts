@@ -64,9 +64,9 @@ export class DataService {
     this.angular.text2 = require('../template/angularjs-2.template.html');
     frontend.addSubSection(this.angular);
 
-    this.angular2 = new TechnologyFront('angularx');
+    this.angular2 = new TechnologyFront('angular2+');
     this.angular2.mainImageUrl = 'assets/img/technologies/angular.png';
-    this.angular2.title = 'Angular X';
+    this.angular2.title = 'Angular 2+';
     this.angular2.text = require('../template/angularx.template.html');
     this.angular2.text2 = require('../template/angularx-2.template.html');
     frontend.addSubSection(this.angular2);
