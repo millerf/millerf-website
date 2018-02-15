@@ -102,6 +102,13 @@ export class DataService {
 
     this.php_millerf_admin = new TechnologyBack('millerf_admin');
     this.php_millerf_admin.mainImageUrl = 'assets/img/technologies/php.svg';
+    this.php_millerf_admin.images = [
+      'assets/img/technologies/millerfAdmin/Millerf Admin 1.png',
+      'assets/img/technologies/millerfAdmin/Millerf Admin 2.png',
+      'assets/img/technologies/millerfAdmin/Millerf Admin 3.png',
+      'assets/img/technologies/millerfAdmin/Millerf Admin 4.png',
+      'assets/img/technologies/millerfAdmin/Millerf Admin 5.png'];
+
     this.php_millerf_admin.title = 'PHP / Miller/F Admin';
     this.php_millerf_admin.text = require('../template/millerfadmin.template.html');
     this.php_millerf_admin.text2 = require('../template/millerfadmin-2.template.html');
