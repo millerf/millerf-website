@@ -45,8 +45,8 @@
       [address]="subsection.github"></millerf-web-github-ribbon>
 
     <div class="description">
-      <p [innerHTML]="subsection.text" class="text_highlighted"></p>
-      <p [innerHTML]="subsection.text2" class="text"></p>
+      <p [innerHTML]="subsection.text" class="text_highlighted" [ngClass]="{'full_width': subsection.text2 == null}"></p>
+      <p *ngIf="subsection.text2!=null" [innerHTML]="subsection.text2" class="text"></p>
     </div>
   </div>
 </section>

@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Project, Section, TechnologyBack, TechnologyFront } from '../models';
+import {Injectable} from '@angular/core';
+import {Project, Section, TechnologyBack, TechnologyFront} from '../models';
 
 declare var require;
 
@@ -23,7 +23,7 @@ export class DataService {
   public postgresql: TechnologyBack;
 
 
-  constructor() {
+  constructor () {
     this.presentation = new Section('presentation');
     this.presentation.title = 'Presentation';
     this.presentation.display = false;
@@ -152,21 +152,21 @@ export class DataService {
    * Returns only displayable sections (to prevent contact section to be displayed)
    * @returns {Section[]}
    */
-  public getDisplayedSections() {
+  public getDisplayedSections () {
     return this.sections.filter((section) => section.display);
   }
 
 
-  public getAnchors() {
+  public getAnchors () {
     return this.sections.map((section) => section.tag);
   }
 
-  private createProjects(projects) {
+  private createProjects (projects) {
     let project = new Project('mozaik-3');
     project.title = 'Mozaik phase 3';
     project.text = require('../template/mozaik3.template.html');
     project.text2 = require('../template/mozaik3-2.template.html');
-project.mainImageUrl = 'assets/img/projects/mozaik-phase3/mozaik-phase3.png';
+    project.mainImageUrl = 'assets/img/projects/mozaik-phase3/mozaik-phase3.png';
     project.images = [
       'assets/img/projects/mozaik-phase3/mozaik-phase3-1.jpg',
       'assets/img/projects/mozaik-phase3/mozaik-phase3-2.jpg',
@@ -180,7 +180,7 @@ project.mainImageUrl = 'assets/img/projects/mozaik-phase3/mozaik-phase3.png';
     project.title = 'Mozaik phase 2';
     project.text = require('../template/mozaik2.template.html');
     project.text2 = require('../template/mozaik2-2.template.html');
-project.mainImageUrl = 'assets/img/projects/mozaik-phase2/mozaik-phase2.png';
+    project.mainImageUrl = 'assets/img/projects/mozaik-phase2/mozaik-phase2.png';
     project.images = [
       'assets/img/projects/mozaik-phase2/mozaik-phase2-1.png',
       'assets/img/projects/mozaik-phase2/mozaik-phase2-2.png',
@@ -196,7 +196,7 @@ project.mainImageUrl = 'assets/img/projects/mozaik-phase2/mozaik-phase2.png';
     project.title = 'Mozaik phase 1';
     project.text = require('../template/mozaik1.template.html');
     project.text2 = require('../template/mozaik1-2.template.html');
-project.mainImageUrl = 'assets/img/projects/mozaik-phase1/mozaik-phase1.png';
+    project.mainImageUrl = 'assets/img/projects/mozaik-phase1/mozaik-phase1.png';
     project.images = [
       'assets/img/projects/mozaik-phase1/mozaik-phase1-1.png',
       'assets/img/projects/mozaik-phase1/mozaik-phase1-2.png',
@@ -212,7 +212,7 @@ project.mainImageUrl = 'assets/img/projects/mozaik-phase1/mozaik-phase1.png';
       'assets/img/projects/cgspectrum/cgspectrum1.png',
       'assets/img/projects/cgspectrum/cgspectrum2.png',
       'assets/img/projects/cgspectrum/cgspectrum3.png'];
-    project.text = '<a target="_blank" href="//www.cgspectrum.com.au">http://www.cgspectrum.com.au</a>';
+    project.text = '<a target="_blank" href="//www.cgspectrum.edu.au/">https://www.cgspectrum.edu.au/</a> is an online school for 3D and animation artists based in Melbourne, Australia.';
     project.addTechonologies(this.html, this.github, this.php_millerf_admin, this.mysql);
     projects.addSubSection(project);
 

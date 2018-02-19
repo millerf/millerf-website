@@ -172,6 +172,10 @@ i{
       p.text_highlighted {
         font-weight: bold;
       }
+      p.full_width{
+        width: calc(100% - 80px);
+      }
+
     }
 
     .techused {
