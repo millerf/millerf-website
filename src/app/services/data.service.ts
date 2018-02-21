@@ -106,8 +106,7 @@ export class DataService {
       'assets/img/technologies/millerfAdmin/Millerf Admin 1.png',
       'assets/img/technologies/millerfAdmin/Millerf Admin 2.png',
       'assets/img/technologies/millerfAdmin/Millerf Admin 3.png',
-      'assets/img/technologies/millerfAdmin/Millerf Admin 4.png',
-      'assets/img/technologies/millerfAdmin/Millerf Admin 5.png'];
+      'assets/img/technologies/millerfAdmin/Millerf Admin 4.png'];
 
     this.php_millerf_admin.title = 'PHP / Miller/F Admin';
     this.php_millerf_admin.text = require('../template/millerfadmin.template.html');

@@ -53,6 +53,12 @@ export class SubsectionComponent implements AfterViewInit {
     }
   }
 
+  getThumbnail(src) {
+    const splitted = src.split('.');
+    const ext = splitted.pop();
+    return splitted.join('.') + '_tn.jpg';
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize(event) {
 

@@ -5,7 +5,7 @@ import {
 import {MnFullpageOptions} from 'ngx-fullpage/index';
 import {environment} from '../../../environments/environment';
 import {DataService} from '../../services/data.service';
-import {Project, Section, SubSection, TechnologyBack, TechnologyFront} from "../../models";
+import {Project, Section, SubSection} from '../../models';
 
 declare var $;
 
