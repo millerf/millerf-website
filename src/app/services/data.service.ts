@@ -229,7 +229,7 @@ export class DataService {
     project = new Project('ramdam');
     project.title = 'Ramdam';
     project.mainImageUrl = 'assets/img/projects/ramdam/logo.svg';
-    project.text = '<a target="_blank" href="//www.ramdam.com/">http://www.ramdam.com/</a> is an online school for 3D and animation artists based in Melbourne, Australia.';
+    project.text = '<a target="_blank" href="//www.ramdam.com/">http://www.ramdam.com/</a> is an online event magazine, based in Toulouse, France.';
     project.addTechonologies(this.html, this.php_millerf_admin, this.mysql);
     projects.addSubSection(project);
 

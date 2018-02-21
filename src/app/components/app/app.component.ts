@@ -29,7 +29,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     scrollingSpeed: 1000,
     menu: '#menu',
     css3: true,
-    sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#f2f2f2'],
+    sectionsColor: ['#f2f2f2', '#f2f2f2', '#f2f2f2', '#f2f2f2', '#f2f2f2'],
   });
 
   public displaySplashscreen = true;
