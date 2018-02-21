@@ -11,7 +11,7 @@ import {DataService} from './services/data.service';
 import {EscapeHtmlPipe} from './pipes/keepHTML.pipe';
 import { GithubRibbonComponent } from './components/github-ribbon/github-ribbon.component';
 import { SubsectionComponent } from './components/subsection/subsection.component';
-
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -27,6 +27,7 @@ import { SubsectionComponent } from './components/subsection/subsection.componen
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     MnFullpageModule.forRoot()
   ],
   providers: [MnFullpageService, DataService],
